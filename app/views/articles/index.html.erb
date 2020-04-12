@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <% if policy(@articles).index? %>
+
+    <%= render partial: "admin_index"%>
+
+  <% else %>
+
+    <%= render partial: "normal_user_index"%>
+  
+  <% end %>
+ <% else %>
+  <%= render partial: "not_logged"%> 
+<% end %>

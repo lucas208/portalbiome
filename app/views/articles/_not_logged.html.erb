@@ -1,0 +1,27 @@
+<%- model_class = Article -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= link_to article.id, article_path(article) %></td>
+        <td><%= article.title %></td>
+        <td><%= (article.body.blank?) ? 'empty' : 'filled' %></td>
+        <td><%= article.date %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

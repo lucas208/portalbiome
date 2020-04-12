@@ -1,0 +1,8 @@
+
+<% if user_signed_in? %>
+  <% if policy(@individualcategories).index? %>
+    <%= render partial: "admin_index"%>
+  <% else %>
+    <%= render partial: "normal_user"%>
+  <% end %>
+<% end %>

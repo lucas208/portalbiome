@@ -1,0 +1,26 @@
+<%- model_class = Writing -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:link) %></th>
+      <th><%= model_class.human_attribute_name(:year) %></th>
+      <th><%= model_class.human_attribute_name("Individuals")%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @writings.each do |writing| %>
+      <tr>
+        <td><%= link_to writing.id, writing_path(writing) %></td>
+        <td><%= writing.title %></td>
+        <td><%= (writing.link.blank?) ? 'empty' : 'filled' %></td>
+        <td><%= writing.year %></td>
+        <td><%= writing.individuals.count%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

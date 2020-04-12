@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  linklattes: MyString
+  foto: MyString
+  email: MyString
+  individualcategory: one
+
+two:
+  name: MyString
+  linklattes: MyString
+  foto: MyString
+  email: MyString
+  individualcategory: two

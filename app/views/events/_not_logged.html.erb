@@ -1,0 +1,26 @@
+<%- model_class = Event -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:date) %></th>
+      <th><%= model_class.human_attribute_name(:finaldate) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= link_to event.id, event_path(event) %></td>
+        <td><%= event.title %></td>
+        <td><%= (event.body.blank?) ? 'empty' : 'filled' %></td>
+        <td><%= event.date %></td>
+        <td><%= event.finaldate %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
